@@ -15,7 +15,7 @@ const Products = () => {
 
   return (
     <div className="grid lg:grid-cols-4 md:grid-cols-2  gap-4 mt-8 mx-4">
-      {products.products.map((p) => (
+      {products?.products?.map((p) => (
         <Product setModalData={setModalData} key={p.id} product={p}></Product>
       ))}
       <Modal modalData={modalData}></Modal>
