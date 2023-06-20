@@ -1,26 +1,22 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Product = ({ product, setModalData }) => {
   const { title, price, id } = product;
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   // console.log(product);
- 
 
-  const navigateProductDetail=(id)=>{
-  navigate(`/productDetail/${id}`)
-  }
- 
- 
+  const navigateProductDetail = (id) => {
+    navigate(`/productDetail/${id}`);
+  };
+
   return (
-   
     <div>
       <div className="max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
         <div className="px-4 py-2">
           <h1 className="text-xl font-bold text-gray-800 uppercase dark:text-white">
-            {product.title.slice(0, 12)}
+            {title.slice(0, 12)}
           </h1>
-       
         </div>
 
         <div className="flex items-center justify-center py-4 bg-[#EDF2FD]">
@@ -65,11 +61,14 @@ const Product = ({ product, setModalData }) => {
         </div>
 
         <div className="flex items-center justify-between px-4 py-2 bg-accent">
-          <h1 className="text-lg font-bold text-white">$ {product.price}</h1>
-        
-        
-        
-          <button onClick={()=>navigateProductDetail(id)} className="btn btn-xs  btn-warning text-white">Buy </button>
+          <h1 className="text-lg font-bold text-white">$ {price}</h1>
+
+          <button
+            onClick={() => navigateProductDetail(id)}
+            className="btn btn-xs  btn-warning text-white"
+          >
+            Buy{' '}
+          </button>
 
           <label
             onClick={() => setModalData(product)}
@@ -78,7 +77,6 @@ const Product = ({ product, setModalData }) => {
           >
             Add to cart
           </label>
-         
         </div>
       </div>
     </div>
