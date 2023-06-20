@@ -20,7 +20,11 @@ const Product = ({ product, setModalData }) => {
         </div>
 
         <div className="flex items-center justify-center py-4 bg-[#EDF2FD]">
-          {/* <img className=" w-28 h-36 mt-2 " src={product.image} alt="NIKE AIR" /> */}
+          <img
+            className=" w-28 h-36 mt-2 "
+            src={product.image[0]}
+            alt="NIKE AIR"
+          />
         </div>
         <div className="flex my-2 item-center">
           <svg
