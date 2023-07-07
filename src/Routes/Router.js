@@ -1,12 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
-import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
-import About from "../Pages/Home/About/About";
 import Signup from "../Pages/Login/Signup";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import ProductDetail from "../Componants/Product/ProductDetail";
+import About from "../Componants/About/About";
+import Home from "../Pages/Home/Home/Home";
+import DashboardLayout from "../Layout/DashboardLayout";
+import Order from "../Componants/Order/Order";
 
  export const router = createBrowserRouter([
   {
@@ -15,11 +17,11 @@ import ProductDetail from "../Componants/Product/ProductDetail";
     children: [
      { 
       path: "/", 
-      element: <Home /> 
+      element: <Home/> 
       },
      { 
       path: "/about", 
-      element: <About /> 
+      element: <About/> 
       },
       { 
       path: "/login", 
@@ -29,6 +31,10 @@ import ProductDetail from "../Componants/Product/ProductDetail";
       path: "/signup", 
       element: <Signup /> 
       },
+      { 
+      path: "/order", 
+      element: <Order /> 
+      },
       {
       path: "/productDetail/:id",
       element: <ProductDetail /> ,
@@ -36,10 +42,22 @@ import ProductDetail from "../Componants/Product/ProductDetail";
         return fetch(`http://localhost:5000/product/${params.id}`)
       },
       },
-      { 
-      path: "/dashboard", 
-      element:<PrivateRoute><Dashboard /> </PrivateRoute>
-      },
+      // { 
+      // path: "/dashboard", 
+      // element:<PrivateRoute><Dashboard /> </PrivateRoute>
+      // },
     ],
   },
+
+ 
+  {
+    path:"/dashboard",
+    element:<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+    children:[
+      {
+        path:"/dashboard",
+        element:<Dashboard></Dashboard>
+      }
+    ]
+  }
 ]);

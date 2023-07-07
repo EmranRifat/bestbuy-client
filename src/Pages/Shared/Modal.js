@@ -3,14 +3,18 @@ import { authContext } from '../../Contexts/AuthProvider';
 import { toast } from 'react-hot-toast';
 
 const Modal = ({ modalData}) => {
-  const {user}=useContext(authContext)
+ 
+const {user}=useContext(authContext)
 
-    // console.log(user);
 const booking={
   email:user?.email,
   product:modalData.title,
-  image:modalData.image,
+  image:modalData.images,
   price:modalData.price,
+  category:modalData.category,
+  brand:modalData.brand,
+  description:modalData.description,
+  thumbnail:modalData.thumbnail
 
 }
 

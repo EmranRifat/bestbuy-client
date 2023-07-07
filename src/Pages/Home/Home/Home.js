@@ -1,9 +1,9 @@
 import React from "react";
-import Slider from "../Slider/Slider";
-import RoundCards from "../Round-card/RoundCards";
 import Sidebar from "../../Shared/Sidebar/Sidebar";
 import RightSideBar from "../../Shared/Sidebar/RightSideBar";
 import Products from "../../../Componants/Products/Products";
+import Slider from "../../Slider/Slider";
+import RoundCards from "../../Round-card/RoundCards";
 
 const Home = () => {
   return (
@@ -14,7 +14,7 @@ const Home = () => {
           {/* <!-- Page content here --> */}
           <div className="flex">
             <div>
-              <Slider />
+              <Slider/>
               <RoundCards />
             </div>
             <RightSideBar />

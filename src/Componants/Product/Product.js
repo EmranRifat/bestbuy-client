@@ -2,27 +2,27 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Product = ({ product, setModalData }) => {
-  const { title, price, id } = product;
+  const { title, price,rating, _id } = product;
   const navigate = useNavigate();
   // console.log(product);
 
-  const navigateProductDetail = (id) => {
-    navigate(`/productDetail/${id}`);
+  const navigateProductDetail = (_id) => {
+    navigate(`/productDetail/${_id}`);
   };
 
   return (
     <div>
       <div className="max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
         <div className="px-4 py-2">
-          <h1 className="text-xl font-bold text-gray-800 uppercase dark:text-white">
-            {title.slice(0, 12)}
+          <h1 className="text-xl font-semibold text-gray-800  dark:text-white">
+            {title.slice(0,20)}
           </h1>
         </div>
 
         <div className="flex items-center justify-center py-4 bg-[#EDF2FD]">
           <img
-            className=" w-28 h-36 mt-2 "
-            src={product.image[0]}
+            className=" object-cover	w-48 h-40  mt-2 "
+            src={product.images[0]}
             alt="NIKE AIR"
           />
         </div>
@@ -61,17 +61,17 @@ const Product = ({ product, setModalData }) => {
           >
             <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
           </svg>
-          <p className="text-gray-500 pl-4 text-sm">(7.5)</p>
+          <p className="text-gray-500 pl-4 text-sm">({rating})</p>
         </div>
 
         <div className="flex items-center justify-between px-4 py-2 bg-accent">
           <h1 className="text-lg font-bold text-white">$ {price}</h1>
 
           <button
-            onClick={() => navigateProductDetail(id)}
+            onClick={() => navigateProductDetail(_id)}
             className="btn btn-xs  btn-warning text-white"
           >
-            Buy{' '}
+            Buy
           </button>
 
           <label

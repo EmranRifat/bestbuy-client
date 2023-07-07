@@ -1,8 +1,8 @@
 import React from 'react';
-import round1 from "../../../assets/cap.png"
-import round2 from "../../../assets/phone.png"
-import round3 from "../../../assets/watch.png"
-import round4 from "../../../assets/shart.png"
+import round1 from "../../assets/cap.png"
+import round2 from "../../assets/phone.png"
+import round3 from "../../assets/watch.png"
+import round4 from "../../assets/shart.png"
 import RoundCard from './RoundCard';
 const RoundCards = () => {
     const cardData=[

@@ -10,7 +10,11 @@ const ProductDetail = () => {
     <div className=" bg-[#EDF2FD]">
       <div className="md:flex justify-around pt-10">
         <div className="w-1/2 ">
-          <img className="w-96 h-96 ml-32" src={item.image} alt="" />
+          <img className="object-cover max-w-md border h-96  ml-32" src={item.images[0]} alt="" />
+         <div className="md:flex gap-4">
+         <img className="object-fill border-2 w-32 max-h-32  mt-4 ml-40" src={item.images[1]} alt="" />
+         <img className="object-fill border-2 w-32 max-h-32  mt-4 " src={item.images[2]} alt="" />
+         </div>
         </div>
 
         <div className="space-y-3 ">
@@ -21,7 +25,7 @@ const ProductDetail = () => {
           </h2>
           <div className="flex">
           <p className="text-3xl font-semibold text-red-500 ">$ {item.price} </p>
-            <p className="text-xl mt-1 px-6 line-through text-gray-600 ">$150</p>
+            <p className="text-xl mt-1 px-6 line-through text-gray-600 ">{item.discountPercentage}</p>
           </div>
           <p>{item?.description.slice(0, 100)}</p>
 
@@ -60,7 +64,7 @@ const ProductDetail = () => {
             >
               <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
             </svg>
-            <p className="text-gray-500 pl-4 text-lg">(4.5)</p>
+            <p className="text-gray-500 pl-4 text-lg">({item.rating})</p>
           </div>
           <div className="divider"></div>
           <div>
