@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { authContext } from "../../Contexts/AuthProvider";
 import { useQuery } from "react-query";
 
@@ -16,8 +16,13 @@ const Order = () => {
   const {data:orders=[],isLoading}=useQuery({
     queryKey:[user?.email],
     queryFn: async ()=>{
-      const res= await  fetch(`http://localhost:5000/order?email=${user?.email}`)
+      const res= await  fetch(`http://localhost:5000/order?email=${user?.email}`,{
+       headers:{
+        authorization:`bearer ${localStorage.getItem('accessToken')}`
+       } 
+      })
       const data=await res.json();
+      console.log('receve',data);
       return data;
 
     } 

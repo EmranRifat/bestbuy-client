@@ -9,6 +9,7 @@ import About from "../Componants/About/About";
 import Home from "../Pages/Home/Home/Home";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Order from "../Componants/Order/Order";
+import Alluser from "../Pages/Dashboard/Alluser";
 
  export const router = createBrowserRouter([
   {
@@ -57,7 +58,14 @@ import Order from "../Componants/Order/Order";
       {
         path:"/dashboard",
         element:<Dashboard></Dashboard>
-      }
+      },
+    
+      {
+        path:"/dashboard/alluser",
+        element:<Alluser></Alluser>
+      },
+    
+      
     ]
   }
 ]);
