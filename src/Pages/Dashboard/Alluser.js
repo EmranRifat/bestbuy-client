@@ -1,9 +1,10 @@
 import React from 'react';
+import { toast } from 'react-hot-toast';
 import { useQuery } from 'react-query';
 
 const Alluser = () => {
 
-    const {data:users=[],isLoading}=useQuery({
+    const {data:users=[],isLoading,refetch}=useQuery({
         queryKey:['users'],
         queryFn: async ()=>{
           const res= await  fetch('http://localhost:5000/users')
@@ -14,11 +15,18 @@ const Alluser = () => {
       });
       const handleMakeAdmin=id=>{
         fetch(`http://localhost:5000/users/admin/${id}`,{
-            method:'PUT'
+            method:'PUT',
+            // for token 
+            headers:{
+              authorization:`bearer ${localStorage.getItem('accessToken')}`
+            }
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data);
+          if(data.modifiedCount>0){
+            toast.success("Make Admin Succesfull.")
+            refetch();
+          }
         })
       }
 

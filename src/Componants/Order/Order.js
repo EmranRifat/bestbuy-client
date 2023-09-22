@@ -47,7 +47,7 @@ const Order = () => {
       </thead>
       <tbody>
      {  
-     orders.map((order,i)=>  <tr key={i}>
+     orders?.map((order,i)=>  <tr key={i}>
           <th>{i+1}</th>
           <td>
           <div className="avatar">

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import React from 'react';
 
 const Dashboard = () => {
@@ -15,6 +16,9 @@ const Dashboard = () => {
       <h3 className='text-3xl font-bold' > Dashboard</h3> 
 
         </div>
+      </div>
+      <div>
+  
       </div>
         </div>
     );
